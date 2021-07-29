@@ -67,6 +67,6 @@ that saves data to its corresponding table.
 And that is it! 60 some odd extra lines of instructions... but we made it. Ask me questions or let me know if there's any typos. I've tried
 to edit this as best I can. Once this is done, you can now run your application and successfully add employers to the database as well as
 create jobs that have associated employers! If you can successfully do this, its time to write the next SQL query, or save those until the end
-and move on to Part 4!
+and move on to Part 4! 
 
 
