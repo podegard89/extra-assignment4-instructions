@@ -20,18 +20,18 @@ to clear that up with these extra tips.
 
 Notice first the paramters of our ```@PostRequest``` handler method ```processAddJobForm```!
 This method handles the post request that the form sends when we submit it to create a new job.
-4 parameters: newJob, errors, model, and employerId
+```4 parameters: newJob, errors, model, and employerId```
 
 ```errors``` is an object that allows us to check our validation.
 ```model``` is what allows us to pass data into our templates.
 These 2 are a given.
 
 ```newJob``` is the job that is getting created by our actual form.
-Its name property is already getting set via model binding. The @ModelAttribute annotation is automatically picking up on what the value
-of newJob's name property should be, which is whatever we type into the text input. What isn't getting set automatically is the value of
-the newJob's employer property. Remember that we've already set up a relationship between the Job and Employer classes. All job objects will 
-contain at least a name string and an employer object by this point. In the future jobs will also contain a list of skills as well. That's part 4
-of the assignment.
+Its name property is already getting set via model binding. The ```@ModelAttribute``` annotation is automatically picking up on what the value
+of ```newJob```'s name property should be, which is whatever we type into the text input. What isn't getting set automatically is the value of
+the ```newJob```'s ```employer``` property. Remember that we've already set up a relationship between the ```Job``` and ```Employer``` classes. All job objects will 
+contain at least a ```name``` string and an ```Employer``` object by this point. In the future jobs will also contain a list of skills as well. That's part 4
+of the assignment. The 4th parameter is ```employerId```.
 
 Step 3 states "Make a mental note of the name of the variable being used to pass the selected employer id on form submission."
 This is wanting you to recall how the 'name' attribute on our HTML tags gets treated when we
