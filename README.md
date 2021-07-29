@@ -66,7 +66,7 @@ Notice we are referencing the `newJob` that is also being passed into our reques
 `newJob` already has a name, but we are manually setting the employer property with a few extra steps since model binding didn't do this automatically.
 
 We can now save our `newJob` to the database for viewing later! I think you can figure out how to save this `newJob` to the database, but I'll 
-give you a hint! You need to first create an instace of `JobRepository` in the `HomeController`, then call a method on that `jobRepository`
+give you a hint! You need to first create an instance of `JobRepository` in the `HomeController`, then call a method on that `jobRepository`
 that saves data to its corresponding table.
 
 And that is it! 60 some odd extra lines of instructions... but we made it. Ask me questions or let me know if there's any typos. I've tried
