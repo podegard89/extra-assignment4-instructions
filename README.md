@@ -22,8 +22,8 @@ Notice first the paramters of our ```@PostRequest``` handler method ```processAd
 This method handles the post request that the form sends when we submit it to create a new job.
 4 parameters: newJob, errors, model, and employerId
 
-```errors``` is an object that allows us to check our validation
-```model``` is what allows us to pass data into our templates
+```errors``` is an object that allows us to check our validation.
+```model``` is what allows us to pass data into our templates.
 These 2 are a given.
 
 ```newJob``` is the job that is getting created by our actual form.
