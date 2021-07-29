@@ -51,13 +51,17 @@ The syntax looks like this:
 
 Once this line executes, the employer object we need is locked inside this `Optional` object `optEmployer` (using opt is a typical practice to name
 objects of the `Optional` class). To retrieve our employer object out of `optEmployer`, we use a method of the `Optional` class:
+
 ```Employer employer = optEmployer.get()```
+
 This will return the employer object wrapped up inside the Optional object. We also store the returned object in this 'employer' variable to be used in the next
 line of code.
 
 From here, we actually have to take this employer object and set it as the value of the `employer` property of our `newJob` object!
 We finally have a use for the setters we have generated with all of our classes up to this point!
+
 ```newJob.setEmployer(employer);```
+
 Notice we are referencing the `newJob` that is also being passed into our request handler method from our form. Like we stated earlier, this
 `newJob` already has a name, but we are manually setting the employer property with a few extra steps since model binding didn't do this automatically.
 
