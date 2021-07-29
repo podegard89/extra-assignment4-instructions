@@ -11,9 +11,9 @@ If you haven't reached this yet, these instructions won't mean much to you.
 
 Once you've added the `employerRepository` into the `HomeController`, it's now time to pass in all
 employer data from the employer table via the `employerRepository` to the `/add` template. First, which method
-handles GetRequests at '/add'? That is where you will add in all of the employerRepository data using model.addAttribute
-and a CrudRepository method that gets all objects from a given repository! (you've done this a few times, code of this kind
-exists in both SkillController and EmployerController)
+handles get requests at `/add`? That is where you will add in all of the `employerRepository` data using `model.addAttribute`
+and a `CrudRepository` method that gets all objects from a given repository! (you've done this a few times, code of this kind
+exists in both `SkillController` and `EmployerController`)
 
 Once you've done that, you're now onto steps 3 and 4. This is where some real confusion can start so I am trying
 to clear that up with these extra tips.
