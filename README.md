@@ -1,16 +1,16 @@
 # extra-assignment4-instructions
 
 These instructions are extra tips/steps to help you out with part 3, 
-specifically the part "Updating HomeController"!
+specifically the part "Updating `HomeController`"!
  
-You should have already refactored the Employer and Job classes to build a Many to One/One to Many
-relationship between them and extended AbstractEntity to the Job class in the previous parts.
+You should have already refactored the Employer and `Job` classes to build a Many to One/One to Many
+relationship between them and extended `AbstractEntity` to the `Job` class in the previous parts.
 
-Now it's time to update the HomeController!
+Now it's time to update the `HomeController`!
 If you haven't reached this yet, these instructions won't mean much to you.
 
-Once you've added the employerRepository into the HomeController, it's now time to pass in all
-employer data from the employer table via the employerRepository to the '/add' template. First, which method
+Once you've added the `employerRepository` into the `HomeController`, it's now time to pass in all
+employer data from the employer table via the `employerRepository` to the `/add` template. First, which method
 handles GetRequests at '/add'? That is where you will add in all of the employerRepository data using model.addAttribute
 and a CrudRepository method that gets all objects from a given repository! (you've done this a few times, code of this kind
 exists in both SkillController and EmployerController)
@@ -34,34 +34,35 @@ contain at least a ```name``` string and an ```Employer``` object by this point.
 of the assignment. The 4th parameter is ```employerId```.
 
 Step 3 states "Make a mental note of the name of the variable being used to pass the selected employer id on form submission."
-This is wanting you to recall how the 'name' attribute on our HTML tags gets treated when we
-send a PostRequest with a form. The employer select input has a name attribute of 'employerId', it's value will be the id of 
-whatever employer you choose when creating a job in the '/add' form. This gets sent to our PostRequest handler method as an
-@RequestParameter! Step 4 is asking us to then use this id to get the matching employer out of the database in our handler method.
+We are handling to requests at `/add`, so that is the template we should reference.
+This sentennce wanting you to recall how the `name` attribute on our HTML tags gets treated when we
+send a post request with a form. The employer select input has a `name` attribute of `employerId`, it's value will be the id of 
+whatever employer you choose when creating a job in the `/add` template's form. This gets sent to our post request handler method as an
+`@RequestParameter`! Step 4 is asking us to then use this id to get the matching employer object out of the database in our handler method.
 
-Now that we have received our employerId from our form, we need to get the matching employer object out of our database using the 
-employerRepository and its associated methods. Recall how we searched for a single object in a table using .findById! This method takes a
-id Integer and searches the table for a row with that given primary id key. It returns out this funky Optional object. The Optional class
-is simpler than it looks! It is what we call a wrapper class. The Optional object returned by findById will itself either contain the employer
-object stored as the row with the employerId we passed in for the method, or it will be empty if no row was found with the given employerId.
+Now that we have received our `employerId` from our form, we need to get the matching employer object out of our database using the 
+`employerRepository` and its associated methods. Recall how we searched for a single object in a table using `findById`! This method takes a
+id and searches the table for a row with that given id as its primary key. `findById` returns out this funky `Optional` object. The `Optional` class
+is simpler than it looks! It is what we call a wrapper class. The `Optional` object returned by `findById` will itself either contain the employer
+object stored as the row with the `employerId` we passed in for the method, or it will be empty if no matching row was found.
 
 The syntax looks like this:
 ```Optional<Employer> optEmployer = employerRepository.findById(employerId);```
 
-Once this line executes, the employer object we need is locked inside the Optional object "optEmployer" (using opt is a typical practice to name
-objects of the Optional class). To retrieve our employer object out of optEmployer, we use a method of the Optional class:
+Once this line executes, the employer object we need is locked inside this `Optional` object `optEmployer` (using opt is a typical practice to name
+objects of the `Optional` class). To retrieve our employer object out of `optEmployer`, we use a method of the `Optional` class:
 ```Employer employer = optEmployer.get()```
-This will return the employer object wrapped up inside the Optional object and store it in this 'employer' variable to be used in the next
+This will return the employer object wrapped up inside the Optional object. We also store the returned object in this 'employer' variable to be used in the next
 line of code.
 
-From here, we actually have to take this employer object and set it as the value of the employer property of our newJob object!
+From here, we actually have to take this employer object and set it as the value of the `employer` property of our `newJob` object!
 We finally have a use for the setters we have generated with all of our classes up to this point!
 ```newJob.setEmployer(employer);```
-Notice we are referencing the newJob that is also being passed into our request handler method from our form. Like we stated earlier, this
-newJob already has a name, but we are manually setting the employer with a few extra steps since model binding didn't do this automatically.
+Notice we are referencing the `newJob` that is also being passed into our request handler method from our form. Like we stated earlier, this
+`newJob` already has a name, but we are manually setting the employer property with a few extra steps since model binding didn't do this automatically.
 
-We can now save our newJob to the database for viewing later! I think you can figure out how to save this newJob to the database, but I'll 
-give you a hint! You need to first create an instace of JobRepository in the HomeController class, then call a method on that jobRepository
+We can now save our `newJob` to the database for viewing later! I think you can figure out how to save this `newJob` to the database, but I'll 
+give you a hint! You need to first create an instace of `JobRepository` in the `HomeController`, then call a method on that `jobRepository`
 that saves data to its corresponding table.
 
 And that is it! 60 some odd extra lines of instructions... but we made it. Ask me questions or let me know if there's any typos. I've tried
