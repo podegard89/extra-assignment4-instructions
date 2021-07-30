@@ -41,7 +41,7 @@ whatever employer you choose when creating a job in the `/add` template's form. 
 `@RequestParameter`! Step 4 is asking us to then use this id to get the matching employer object out of the database in our handler method.
 
 Now that we have received our `employerId` from our form, we need to get the matching employer object out of our database using the 
-`employerRepository` and its associated methods. Recall how we searched for a single object in a table using `findById`! This method takes a
+`employerRepository` and its associated methods. Recall how we searched for a single object in a table using `findById`! This method takes an
 id and searches the table for a row with that given id as its primary key. `findById` returns out this funky `Optional` object. The `Optional` class
 is simpler than it looks! It is what we call a wrapper class. The `Optional` object returned by `findById` will itself either contain the employer
 object stored as the row with the `employerId` we passed in for the method, or it will be empty if no matching row was found.
