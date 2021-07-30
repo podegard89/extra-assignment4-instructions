@@ -25,7 +25,7 @@ This method handles the post request that the form sends when we submit it to cr
 ```errors``` is an object that allows us to check our validation.
 ```model``` is what allows us to pass data into our templates.
 These 2 are a given.
-Make sure you're coding `AFTER` the if check for the errors object. You want your method to make sure there's no errors before doing anything
+Make sure you're coding `AFTER` the `if` check for the errors object. You want your method to make sure there's no errors before doing anything
 else.
 
 ```newJob``` is the job that is getting created by our actual form.
