@@ -35,7 +35,7 @@ of the assignment. The 4th parameter is ```employerId```.
 
 Step 3 states "Make a mental note of the name of the variable being used to pass the selected employer id on form submission."
 We are handling post requests at `/add`, so that is the template we should reference.
-This sentennce wanting you to recall how the `name` attribute on our HTML tags gets treated when we
+This sentence is wanting you to recall how the `name` attribute on our HTML tags gets treated when we
 send a post request with a form. The employer select input has a `name` attribute of `employerId`, it's value will be the id of 
 whatever employer you choose when creating a job in the `/add` template's form. This gets sent to our post request handler method as an
 `@RequestParameter`! Step 4 is asking us to then use this id to get the matching employer object out of the database in our handler method.
