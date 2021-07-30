@@ -2,9 +2,12 @@
 
 These instructions are extra tips/steps to help you out with part 3, 
 specifically the part "Updating `HomeController`"!
- 
+
 You should have already refactored the `Employer` and `Job` classes to build a Many to One/One to Many
 relationship between them and extended `AbstractEntity` to the `Job` class in the previous parts.
+
+If you haven't yet, make sure to use `mappedBy` as part of the `@OneToMany` annotation instead of doing a whole
+`@JoinColumn` annotation. Reference this link to see how `mappedBy` is used with `@OneToMany`: https://education.launchcode.org/java-web-development/chapters/orm-relationships/one-to-many.html#model-configuration. This annotation goes on the `List<Job> jobs` field you would have created as part of this step already.
 
 Now it's time to update the `HomeController`!
 If you haven't reached this yet, these instructions won't mean much to you.
