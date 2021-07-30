@@ -27,6 +27,9 @@ This method handles the post request that the form sends when we submit it to cr
 
 ```errors``` is an object that allows us to check our validation.
 ```model``` is what allows us to pass data into our templates.
+One thing you'll need to do in the case that there are errors when submitting the add job form: pass all employers back into the `/add` view!
+Notice how in the previous step we passed all the employer data into the `/add` view. We have to do that again `if` `errors.hasErrors()` if true!
+So put that same line of code you used in that previous step in the `if` statement!
 These 2 are a given.
 Make sure you're coding `AFTER` the `if` check for the errors object. You want your method to make sure there's no errors before doing anything
 else.
